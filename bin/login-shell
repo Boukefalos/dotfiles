@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 shell=$(basename "$SHELL")
 
 # check if reattach-to-user-namespace is available

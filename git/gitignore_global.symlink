@@ -15,9 +15,3 @@ Icon
 
 # project-specific vim configurations
 .vimrc.local
-
-# typescript command garbage
-tscommand*.txt
-
-# nvm - the Node Version Manager
-.nvmrc

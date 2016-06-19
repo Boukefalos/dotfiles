@@ -48,7 +48,6 @@ git_arrows() {
     echo $arrows
 }
 
-
 # indicate a job (for example, vim) has been backgrounded
 # If there is a job in the background, display a ✱
 suspended_jobs() {
@@ -63,8 +62,8 @@ suspended_jobs() {
 
 precmd() {
     vcs_info
-    print -P '\n%F{205}%~'
+    print -P '\n%F{145}%~'
 }
 
-export PROMPT='%(?.%F{205}.%F{red})❯%f '
+export PROMPT='%(?.%F{145}.%F{red})❯%f '
 export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'

@@ -30,5 +30,9 @@ bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 
+# remap reverse search
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+
 fpath=($ZSH/functions $fpath)
 autoload -U $ZSH/functions/*(:t)

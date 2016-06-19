@@ -13,7 +13,7 @@ if [[ -d ~/code ]]; then
 fi
 
 # source all .zsh files inside of the zsh/ directory
-for config ($ZSH/**/*.zsh) source $config
+for config ($ZSH/*.zsh) source $config
 
 if [[ -a ~/.localrc ]]; then
     source ~/.localrc
