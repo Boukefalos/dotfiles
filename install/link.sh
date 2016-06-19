@@ -32,19 +32,11 @@ for config in $DOTFILES/config/*; do
     fi
 done
 
-# create vim symlinks
-# As I have moved off of vim as my full time editor in favor of neovim,
-# I feel it doesn't make sense to leave my vimrc intact in the dotfiles repo
-# as it is not really being actively maintained. However, I would still
-# like to configure vim, so lets symlink ~/.vimrc and ~/.vim over to their
-# neovim equivalent.
-
 echo -e "\n\nCreating vim symlinks"
 echo "=============================="
-
 typeset -A vimfiles
-vimfiles[~/.vim]=$DOTFILES/config/nvim
-vimfiles[~/.vimrc]=$DOTFILES/config/nvim/init.vim
+vimfiles[~/.vim]=$DOTFILES/config/vim
+vimfiles[~/.vimrc]=$DOTFILES/config/vim/init.vim
 
 for file in "${!vimfiles[@]}"; do
     if [ -e ${file} ]; then
@@ -54,3 +46,14 @@ for file in "${!vimfiles[@]}"; do
         ln -s ${vimfiles[$file]} $file
     fi
 done
+
+echo -e "\n\nCreating tmux symlinks"
+echo "=============================="
+file=~/.tmux/
+if [ -e ${file}/plugins ]; then
+    echo "${file}/plugins already exists... skipping"
+else
+    mkdir -p ~/.tmux/
+  echo "Creating symlink for $file/plugins"
+    ln -s $DOTFILES/tmux/plugins $file
+fi
